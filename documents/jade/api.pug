@@ -1,0 +1,416 @@
+doctype html
+html
+  head
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui")
+    title API
+    link(rel="stylesheet", href="assets/css/api.css")
+    link(rel="stylesheet", href="lib/bootstrap/css/bootstrap.min.css")
+    link(rel="stylesheet", href="lib/prism.css")
+    script(type="text/javascript", src="lib/jquery-2.2.2.min.js")
+    script(type="text/javascript", src="lib/bootstrap/js/bootstrap.min.js")
+    script(type="text/javascript", src="lib/prism.js")
+    link(rel="stylesheet", href="strong-password/css/strong-password.min.css")
+    script(type="text/javascript", src="strong-password/js/strong-password.min.js")
+    script(type="text/javascript").
+      $(document).ready(function($){
+        $('#ex_1').strongPassword({
+          afterHide: function(el) {
+            el.one('click', function() {
+              el.blur();
+            });
+          }
+        });
+        $('#ex_2').strongPassword({
+          animation: 'none' //no animation
+        });
+        $('#ex_3').strongPassword({
+          arrow: false
+        });
+        $('#ex_4').strongPassword({
+          backdrop: false
+        });
+        $('#ex_5').strongPassword({
+          buttons: {
+            regen: 'New',
+            ok: 'Ok',
+            cancel: 'Close'
+          }
+        });
+        $('#ex_6').strongPassword({
+          caption: 'Are you argee?'
+        });
+        $('#ex_7').strongPassword({
+          cssClass: 'sp-black'
+        });
+        $('#ex_8').strongPassword({
+          firstVowel: true
+        });
+        $('#ex_9').strongPassword({
+          followClick: false
+        });
+        $('#ex_10').strongPassword({
+          lastConsonant: true
+        });
+        $('#ex_11').strongPassword({
+          arrow: false,
+          placement: 'right',
+          offset: {
+            top: -50,
+            left: -100
+          }
+        });
+        $('#ex_12').strongPassword({
+          onHide: function(popover) {
+            popover.css('border', '4px solid red');
+          }
+        });
+        $('#ex_13').strongPassword({
+          placement: 'right'
+        });
+        $('#ex_14').strongPassword({
+          range: [3,5]
+        });
+        $('#ex_15').strongPassword({
+          sounds: 3
+        });
+        $('#ex_16').strongPassword({
+          visibleTime: 5000
+        });
+      });
+
+  body(data-spy="scroll", data-target="#menu")
+    #content.container-fluid
+      .top-menu.row
+        #main-menu
+          ul.nav.nav-pills
+            li(role="presentation"): a(href="index.html") Home
+            li.active(role="presentation"): a(href="#") User Guide
+            li(role="presentation"): a(href="demo.html") Examples
+      #main.row
+        .col-md-3
+          #menu(data-spy="affix")
+            ul.nav.nav-pills.nav-stacked
+              li(role="presentation")
+                a(href="#quick") How to Start
+              li(role="presentation")
+                a(href="#options") Options
+                ul.nav.nav-pills.nav-stacked
+                  li: a(href="#afterHide") afterHide
+                  li: a(href="#animation") animation
+                  li: a(href="#arrow") arrow
+                  li: a(href="#backdrop") backdrop
+                  li: a(href="#buttons") buttons
+                  li: a(href="#caption") caption
+                  li: a(href="#cssClass") cssClass
+                  li: a(href="#firstVowel") firstVowel
+                  li: a(href="#followClick") followClick
+                  li: a(href="#height") height
+                  li: a(href="#lastConsonant") lastConsonant
+                  li: a(href="#offset") offset
+                  li: a(href="#onHide ") onHide 
+                  li: a(href="#placement") placement
+                  li: a(href="#range") range
+                  li: a(href="#sounds") sounds
+                  li: a(href="#visibleTime") visibleTime
+                  li: a(href="#width") width
+              
+
+        #main-content.col-md-9
+          h2#quick How to Start
+          p.step Upload <b>strong-password</b> folder to the server.
+          p.step= "Include strong-password.min.css, strong-password.min.js, jQuery files in your <head> section of the page:"
+          pre.language-html
+            code.language-html.
+              &lt;link rel="stylesheet" href="strong-password/css/strong-password.min.css">
+              &lt;script type="text/javascript" src="lib/jquery-2.2.2.min.js">&lt;/script>
+              &lt;script type="text/javascript" src="strong-password/js/strong-password.min.js">&lt;/script>
+              
+          p.step Plug strongPassword plugin to you password field in the script:
+          pre.language-javascript
+            code.language-javascript.
+              $('input[type=password]').strongPassword();
+          p.step You can use options:
+          pre.language-javascript
+            code.language-javascript.
+              var options = {
+                cssClass: 'sp-black',
+                backdrop: false
+              // other options...
+              }
+              $('input[type=password]').strongPassword(options);
+              
+              
+          h2#options Options
+          #afterHide.options
+            h3 afterHide(element)
+            .type type: function
+            .default  default: function(){}
+            .param @param {jQuery object} element &mdash; the element to witch the plugin is pluged
+            .description
+              p The callback function that will be called after the plugin is removed
+              h4 Example
+              pre.language-javascript
+                code.language-javascript.
+                  $('input[name=password]').strongPassword({
+                    afterHide: function(el) {
+                      el.one('click', function() {
+                        el.blur();
+                      });
+                    }
+                  });
+              .example
+                input#ex_1(type=password, placeholder="click me")
+          #animation.options
+            h3 animation
+            .type type: String
+            .default default: 'fade'
+            .values values: 'none', 'fade', 'pop', 'from-top', 'from-bottom', from-right', 'from-left'
+            .description
+              p Specifies the type of animation (css transition)
+              h4 Example
+              pre.language-javascript
+                code.language-javascript.
+                  $('input[name=password]').strongPassword({
+                    animation: 'none' //no animation
+                  });
+              .example
+                input#ex_2(type=password, placeholder="click me")    
+          #arrow.options
+            h3 arrow
+            .type type: Boolean
+            .default default: true
+            .description
+              p  Specifies whether to use the arrow element or not
+              h4 Example
+              pre.language-javascript
+                code.language-javascript.
+                  $('input[name=password]').strongPassword({
+                    arrow: false
+                  });
+              .example
+                input#ex_3(type=password, placeholder="click me")
+          #backdrop.options
+            h3 backdrop
+            .type type: Boolean
+            .default default: true
+            .description
+              p  Specifies whether to use the backdrop or not
+              h4 Example
+              pre.language-javascript
+                code.language-javascript.
+                  $('input[name=password]').strongPassword({
+                    backdrop: false
+                  });
+              .example
+                input#ex_4(type=password, placeholder="click me")
+          #buttons.options
+            h3 buttons
+            .type type: Object
+            .default default: 
+              pre.language-javascript
+                code.language-javascript.
+                  buttons: {
+                    regen: 'Renew',
+                    ok: 'Apply',
+                    cancel: 'Cancel'
+                  }
+            .description
+              p Specifies names of buttons
+              h4 Example
+              pre.language-javascript
+                code.language-javascript.
+                  $('input[name=password]').strongPassword({
+                    buttons: {
+                      regen: 'New',
+                      ok: 'Ok',
+                      cancel: 'Close'
+                    }
+                  });
+              .example
+                input#ex_5(type=password, placeholder="click me")
+          #caption.options
+            h3 caption
+            .type type: String
+            .default default: 'Do you like this password?'
+            .description
+              p Specifies the caption
+              h4 Example
+              pre.language-javascript
+                code.language-javascript.
+                  $('input[name=password]').strongPassword({
+                    caption: 'Are you argee?'
+                  });
+              .example
+                input#ex_6(type=password, placeholder="click me")
+          #cssClass.options
+            h3 cssClass
+            .type type: String
+            .default default: null
+            .description
+              p  If defined, specifies the css class that will be added to the popover element. You can use predefined 'sp-black' class or develope your own css class.
+              h4 Example
+              pre.language-javascript
+                code.language-javascript.
+                  $('input[name=password]').strongPassword({
+                    cssClass: 'sp-black'
+                  });
+              .example
+                input#ex_7(type=password, placeholder="click me")
+          #firstVowel.options
+            h3 firstVowel
+            .type type: Boolean
+            .default default: false
+            .description
+              p Prepends a random vovel to the result with probability of 50%
+              h4 Example
+              pre.language-javascript
+                code.language-javascript.
+                  $('input[name=password]').strongPassword({
+                    firstVowel: true
+                  });
+              .example
+                input#ex_8(type=password, placeholder="click me")
+          #followClick.options
+            h3 followClick
+            .type type: Boolean
+            .default default: true
+            .description
+              p Specifies whether the arrow element must be placed to the point with coordinates of a click.
+              h4 Example
+              pre.language-javascript
+                code.language-javascript.
+                  $('input[name=password]').strongPassword({
+                    placement: 'vertical',
+                    followClick: false
+                  });
+              .example
+                input#ex_9(type=password, placeholder="click me")
+          #height.options
+            h3 height
+            .type type: String or Integer
+            .default default: 'auto'
+            .description
+              p Height of the popover element.
+          #lastConsonant.options
+            h3 lastConsonant
+            .type type: Boolean
+            .default default: false
+            .description
+              p Appends a random consonant to the result with probability of 50%
+              h4 Example
+              pre.language-javascript
+                code.language-javascript.
+                  $('input[name=password]').strongPassword({
+                    lastConsonant: true
+                  });
+              .example
+                input#ex_10(type=password, placeholder="click me")
+          #offset.options
+            h3 offset
+            .type type: Object
+            .default default:
+            pre.language-javascript
+              code.language-javascript.
+                offset: {
+                  top: 0,
+                  left: 0
+                }
+                
+            .description
+              p Specifies an offset of the popover element
+              h4 Example
+              pre.language-javascript
+                code.language-javascript.
+                  $('input[name=password]').strongPassword({
+                    offset: {
+                      top: 40,
+                      left: 50
+                    }
+                  });
+              .example
+                input#ex_11(type=password, placeholder="click me")
+          #onHide.options
+            h3 onHide (popover)
+            .type type: function
+            .default  default: function(){}
+            .param @param {jQuery object} popover &mdash; the popover element
+            .decription
+              p The callback function that will be called when the popover is hiding
+              h4 Example
+              pre.language-javascript
+                code.language-javascript.
+                  $('input[name=password]').strongPassword({
+                    onHide: function(popover) {
+                      popover.css('border', '4px solid red');
+                    }
+                  });
+              .example
+                input#ex_12(type=password, placeholder="click me")
+          
+          #placement.options
+            h3 placement
+            .type type: String
+            .default default: 'vertical'
+            .values values: 'auto', 'top', 'right', 'bottom', 'left', 'top-right', 'top-left', 'bottom-right', 'bottom-left', 'auto-top', 'auto-right', 'auto-bottom', 'auto-left', 'horizontal', 'vertical'
+            .description
+              p The placement of the popover element
+              h4 Example
+              pre.language-javascript
+                code.language-javascript.
+                  $('input[name=password]').strongPassword({
+                    placement: 'right'
+                  });
+              .example
+                input#ex_13(type=password, placeholder="click me")
+          #range.options
+            h3 range
+            .type type: Array
+            .default default: undefined
+            .descript
+              p If defined, the number of sounds will calculated in a range from the first element to the second element
+              h4 Example
+              pre.language-javascript
+                code.language-javascript.
+                  $('input[name=password]').strongPassword({
+                    range: [3,5]
+                  });
+              .example
+                input#ex_14(type=password, placeholder="click me")
+          #sounds.options
+            h3 sounds
+            .type type: Integer
+            .default default: 4
+            .description
+              p The number of sounds in the password
+              h4 Example
+              pre.language-javascript
+                code.language-javascript.
+                  $('input[name=password]').strongPassword({
+                    sounds: 3
+                  });
+              .example
+                input#ex_15(type=password, placeholder="click me")
+          #visibleTime.options
+            h3 visibleTime
+            .type type: Integer
+            .default default: 1000
+            .description
+              p Time in ms during which the password in a form field will be visible
+              h4 Example
+              pre.language-javascript
+                code.language-javascript.
+                  $('input[name=password]').strongPassword({
+                    visibleTime: 5000
+                  });
+              .example
+                input#ex_16(type=password, placeholder="click me")
+          #width.options
+            h3 width
+            .type type: String or Integer
+            .default default: 222
+            .description
+              p Width of the popover element.
+          
+
+    .footer
+      p &copy; Kremlianski 2016

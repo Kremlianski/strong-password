@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>API</title>
+    <link rel="stylesheet" href="assets/css/api.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/prism.css">
+    <script type="text/javascript" src="lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/prism.js"></script>
+    <link rel="stylesheet" href="strong-password/css/strong-password.min.css">
+    <script type="text/javascript" src="strong-password/js/strong-password.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function($){
+        $('#ex_1').strongPassword({
+          afterHide: function(el) {
+            el.one('click', function() {
+              el.blur();
+            });
+          }
+        });
+        $('#ex_2').strongPassword({
+          animation: 'none' //no animation
+        });
+        $('#ex_3').strongPassword({
+          arrow: false
+        });
+        $('#ex_4').strongPassword({
+          backdrop: false
+        });
+        $('#ex_5').strongPassword({
+          buttons: {
+            regen: 'New',
+            ok: 'Ok',
+            cancel: 'Close'
+          }
+        });
+        $('#ex_6').strongPassword({
+          caption: 'Are you argee?'
+        });
+        $('#ex_7').strongPassword({
+          cssClass: 'sp-black'
+        });
+        $('#ex_8').strongPassword({
+          firstVowel: true
+        });
+        $('#ex_9').strongPassword({
+          followClick: false
+        });
+        $('#ex_10').strongPassword({
+          lastConsonant: true
+        });
+        $('#ex_11').strongPassword({
+          arrow: false,
+          placement: 'right',
+          offset: {
+            top: -50,
+            left: -100
+          }
+        });
+        $('#ex_12').strongPassword({
+          onHide: function(popover) {
+            popover.css('border', '4px solid red');
+          }
+        });
+        $('#ex_13').strongPassword({
+          placement: 'right'
+        });
+        $('#ex_14').strongPassword({
+          range: [3,5]
+        });
+        $('#ex_15').strongPassword({
+          sounds: 3
+        });
+        $('#ex_16').strongPassword({
+          visibleTime: 5000
+        });
+      });
+      
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#menu">
+    <div class="container-fluid" id="content">
+      <div class="top-menu row">
+        <div id="main-menu">
+          <ul class="nav nav-pills">
+            <li role="presentation"><a href="index.html">Home</a></li>
+            <li class="active" role="presentation"><a href="#">User Guide</a></li>
+            <li role="presentation"><a href="demo.html">Examples</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row" id="main">
+        <div class="col-md-3">
+          <div id="menu" data-spy="affix">
+            <ul class="nav nav-pills nav-stacked">
+              <li role="presentation"><a href="#quick">How to Start</a></li>
+              <li role="presentation"><a href="#options">Options</a>
+                <ul class="nav nav-pills nav-stacked">
+                  <li><a href="#afterHide">afterHide</a></li>
+                  <li><a href="#animation">animation</a></li>
+                  <li><a href="#arrow">arrow</a></li>
+                  <li><a href="#backdrop">backdrop</a></li>
+                  <li><a href="#buttons">buttons</a></li>
+                  <li><a href="#caption">caption</a></li>
+                  <li><a href="#cssClass">cssClass</a></li>
+                  <li><a href="#firstVowel">firstVowel</a></li>
+                  <li><a href="#followClick">followClick</a></li>
+                  <li><a href="#height">height</a></li>
+                  <li><a href="#lastConsonant">lastConsonant</a></li>
+                  <li><a href="#offset">offset</a></li>
+                  <li><a href="#onHide ">onHide </a></li>
+                  <li><a href="#placement">placement</a></li>
+                  <li><a href="#range">range</a></li>
+                  <li><a href="#sounds">sounds</a></li>
+                  <li><a href="#visibleTime">visibleTime</a></li>
+                  <li><a href="#width">width</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9" id="main-content">
+          <h2 id="quick">How to Start</h2>
+          <p class="step">Upload <b>strong-password</b> folder to the server.</p>
+          <p class="step">Include strong-password.min.css, strong-password.min.js, jQuery files in your &lt;head&gt; section of the page:</p>
+          <pre class="language-html"><code class="language-html">&lt;link rel="stylesheet" href="strong-password/css/strong-password.min.css">
+&lt;script type="text/javascript" src="lib/jquery-2.2.2.min.js">&lt;/script>
+&lt;script type="text/javascript" src="strong-password/js/strong-password.min.js">&lt;/script>
+</code></pre>
+          <p class="step">Plug strongPassword plugin to you password field in the script:</p>
+          <pre class="language-javascript"><code class="language-javascript">$('input[type=password]').strongPassword();</code></pre>
+          <p class="step">You can use options:</p>
+          <pre class="language-javascript"><code class="language-javascript">var options = {
+  cssClass: 'sp-black',
+  backdrop: false
+// other options...
+}
+$('input[type=password]').strongPassword(options);
+
+</code></pre>
+          <h2 id="options">Options</h2>
+          <div class="options" id="afterHide">
+            <h3>afterHide(element)</h3>
+            <div class="type">type: function</div>
+            <div class="default"> default: function(){}</div>
+            <div class="param">@param {jQuery object} element &mdash; the element to witch the plugin is pluged</div>
+            <div class="description">
+              <p>The callback function that will be called after the plugin is removed</p>
+              <h4>Example</h4>
+              <pre class="language-javascript"><code class="language-javascript">$('input[name=password]').strongPassword({
+  afterHide: function(el) {
+    el.one('click', function() {
+      el.blur();
+    });
+  }
+});</code></pre>
+              <div class="example">
+                <input id="ex_1" placeholder="click me">
+              </div>
+            </div>
+          </div>
+          <div class="options" id="animation">
+            <h3>animation</h3>
+            <div class="type">type: String</div>
+            <div class="default">default: 'fade'</div>
+            <div class="values">values: 'none', 'fade', 'pop', 'from-top', 'from-bottom', from-right', 'from-left'</div>
+            <div class="description">
+              <p>Specifies the type of animation (css transition)</p>
+              <h4>Example</h4>
+              <pre class="language-javascript"><code class="language-javascript">$('input[name=password]').strongPassword({
+  animation: 'none' //no animation
+});</code></pre>
+              <div class="example">
+                <input id="ex_2" placeholder="click me">
+              </div>
+            </div>
+          </div>
+          <div class="options" id="arrow">
+            <h3>arrow</h3>
+            <div class="type">type: Boolean</div>
+            <div class="default">default: true</div>
+            <div class="description">
+              <p> Specifies whether to use the arrow element or not</p>
+              <h4>Example</h4>
+              <pre class="language-javascript"><code class="language-javascript">$('input[name=password]').strongPassword({
+  arrow: false
+});</code></pre>
+              <div class="example">
+                <input id="ex_3" placeholder="click me">
+              </div>
+            </div>
+          </div>
+          <div class="options" id="backdrop">
+            <h3>backdrop</h3>
+            <div class="type">type: Boolean</div>
+            <div class="default">default: true</div>
+            <div class="description">
+              <p> Specifies whether to use the backdrop or not</p>
+              <h4>Example</h4>
+              <pre class="language-javascript"><code class="language-javascript">$('input[name=password]').strongPassword({
+  backdrop: false
+});</code></pre>
+              <div class="example">
+                <input id="ex_4" placeholder="click me">
+              </div>
+            </div>
+          </div>
+          <div class="options" id="buttons">
+            <h3>buttons</h3>
+            <div class="type">type: Object</div>
+            <div class="default">default: 
+              <pre class="language-javascript"><code class="language-javascript">buttons: {
+  regen: 'Renew',
+  ok: 'Apply',
+  cancel: 'Cancel'
+}</code></pre>
+            </div>
+            <div class="description">
+              <p>Specifies names of buttons</p>
+              <h4>Example</h4>
+              <pre class="language-javascript"><code class="language-javascript">$('input[name=password]').strongPassword({
+  buttons: {
+    regen: 'New',
+    ok: 'Ok',
+    cancel: 'Close'
+  }
+});</code></pre>
+              <div class="example">
+                <input id="ex_5" placeholder="click me">
+              </div>
+            </div>
+          </div>
+          <div class="options" id="caption">
+            <h3>caption</h3>
+            <div class="type">type: String</div>
+            <div class="default">default: 'Do you like this password?'</div>
+            <div class="description">
+              <p>Specifies the caption</p>
+              <h4>Example</h4>
+              <pre class="language-javascript"><code class="language-javascript">$('input[name=password]').strongPassword({
+  caption: 'Are you argee?'
+});</code></pre>
+              <div class="example">
+                <input id="ex_6" placeholder="click me">
+              </div>
+            </div>
+          </div>
+          <div class="options" id="cssClass">
+            <h3>cssClass</h3>
+            <div class="type">type: String</div>
+            <div class="default">default: null</div>
+            <div class="description">
+              <p> If defined, specifies the css class that will be added to the popover element. You can use predefined 'sp-black' class or develope your own css class.</p>
+              <h4>Example</h4>
+              <pre class="language-javascript"><code class="language-javascript">$('input[name=password]').strongPassword({
+  cssClass: 'sp-black'
+});</code></pre>
+              <div class="example">
+                <input id="ex_7" placeholder="click me">
+              </div>
+            </div>
+          </div>
+          <div class="options" id="firstVowel">
+            <h3>firstVowel</h3>
+            <div class="type">type: Boolean</div>
+            <div class="default">default: false</div>
+            <div class="description">
+              <p>Prepends a random vovel to the result with probability of 50%</p>
+              <h4>Example</h4>
+              <pre class="language-javascript"><code class="language-javascript">$('input[name=password]').strongPassword({
+  firstVowel: true
+});</code></pre>
+              <div class="example">
+                <input id="ex_8" placeholder="click me">
+              </div>
+            </div>
+          </div>
+          <div class="options" id="followClick">
+            <h3>followClick</h3>
+            <div class="type">type: Boolean</div>
+            <div class="default">default: true</div>
+            <div class="description">
+              <p>Specifies whether the arrow element must be placed to the point with coordinates of a click.</p>
+              <h4>Example</h4>
+              <pre class="language-javascript"><code class="language-javascript">$('input[name=password]').strongPassword({
+  placement: 'vertical',
+  followClick: false
+});</code></pre>
+              <div class="example">
+                <input id="ex_9" placeholder="click me">
+              </div>
+            </div>
+          </div>
+          <div class="options" id="height">
+            <h3>height</h3>
+            <div class="type">type: String or Integer</div>
+            <div class="default">default: 'auto'</div>
+            <div class="description">
+              <p>Height of the popover element.</p>
+            </div>
+          </div>
+          <div class="options" id="lastConsonant">
+            <h3>lastConsonant</h3>
+            <div class="type">type: Boolean</div>
+            <div class="default">default: false</div>
+            <div class="description">
+              <p>Appends a random consonant to the result with probability of 50%</p>
+              <h4>Example</h4>
+              <pre class="language-javascript"><code class="language-javascript">$('input[name=password]').strongPassword({
+  lastConsonant: true
+});</code></pre>
+              <div class="example">
+                <input id="ex_10" placeholder="click me">
+              </div>
+            </div>
+          </div>
+          <div class="options" id="offset">
+            <h3>offset</h3>
+            <div class="type">type: Object</div>
+            <div class="default">default:</div>
+            <pre class="language-javascript"><code class="language-javascript">offset: {
+  top: 0,
+  left: 0
+}
+</code></pre>
+            <div class="description">
+              <p>Specifies an offset of the popover element</p>
+              <h4>Example</h4>
+              <pre class="language-javascript"><code class="language-javascript">$('input[name=password]').strongPassword({
+  offset: {
+    top: 40,
+    left: 50
+  }
+});</code></pre>
+              <div class="example">
+                <input id="ex_11" placeholder="click me">
+              </div>
+            </div>
+          </div>
+          <div class="options" id="onHide">
+            <h3>onHide (popover)</h3>
+            <div class="type">type: function</div>
+            <div class="default"> default: function(){}</div>
+            <div class="param">@param {jQuery object} popover &mdash; the popover element</div>
+            <div class="decription">
+              <p>The callback function that will be called when the popover is hiding</p>
+              <h4>Example</h4>
+              <pre class="language-javascript"><code class="language-javascript">$('input[name=password]').strongPassword({
+  onHide: function(popover) {
+    popover.css('border', '4px solid red');
+  }
+});</code></pre>
+              <div class="example">
+                <input id="ex_12" placeholder="click me">
+              </div>
+            </div>
+          </div>
+          <div class="options" id="placement">
+            <h3>placement</h3>
+            <div class="type">type: String</div>
+            <div class="default">default: 'vertical'</div>
+            <div class="values">values: 'auto', 'top', 'right', 'bottom', 'left', 'top-right', 'top-left', 'bottom-right', 'bottom-left', 'auto-top', 'auto-right', 'auto-bottom', 'auto-left', 'horizontal', 'vertical'</div>
+            <div class="description">
+              <p>The placement of the popover element</p>
+              <h4>Example</h4>
+              <pre class="language-javascript"><code class="language-javascript">$('input[name=password]').strongPassword({
+  placement: 'right'
+});</code></pre>
+              <div class="example">
+                <input id="ex_13" placeholder="click me">
+              </div>
+            </div>
+          </div>
+          <div class="options" id="range">
+            <h3>range</h3>
+            <div class="type">type: Array</div>
+            <div class="default">default: undefined</div>
+            <div class="descript">
+              <p>If defined, the number of sounds will calculated in a range from the first element to the second element</p>
+              <h4>Example</h4>
+              <pre class="language-javascript"><code class="language-javascript">$('input[name=password]').strongPassword({
+  range: [3,5]
+});</code></pre>
+              <div class="example">
+                <input id="ex_14" placeholder="click me">
+              </div>
+            </div>
+          </div>
+          <div class="options" id="sounds">
+            <h3>sounds</h3>
+            <div class="type">type: Integer</div>
+            <div class="default">default: 4</div>
+            <div class="description">
+              <p>The number of sounds in the password</p>
+              <h4>Example</h4>
+              <pre class="language-javascript"><code class="language-javascript">$('input[name=password]').strongPassword({
+  sounds: 3
+});</code></pre>
+              <div class="example">
+                <input id="ex_15" placeholder="click me">
+              </div>
+            </div>
+          </div>
+          <div class="options" id="visibleTime">
+            <h3>visibleTime</h3>
+            <div class="type">type: Integer</div>
+            <div class="default">default: 1000</div>
+            <div class="description">
+              <p>Time in ms during which the password in a form field will be visible</p>
+              <h4>Example</h4>
+              <pre class="language-javascript"><code class="language-javascript">$('input[name=password]').strongPassword({
+  visibleTime: 5000
+});</code></pre>
+              <div class="example">
+                <input id="ex_16" placeholder="click me">
+              </div>
+            </div>
+          </div>
+          <div class="options" id="width">
+            <h3>width</h3>
+            <div class="type">type: String or Integer</div>
+            <div class="default">default: 222</div>
+            <div class="description">
+              <p>Width of the popover element.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>&copy; Kremlianski 2016</p>
+    </div>
+  </body>
+</html>

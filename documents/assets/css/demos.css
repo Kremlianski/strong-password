@@ -1,0 +1,27 @@
+#form-wrapper {
+  width: 60%;
+  margin: 0 auto;
+}
+@media all and (max-width: 1050px) {
+  #form-wrapper {
+    width: 98%;
+    margin: 0 auto;
+  }
+}
+#main input {
+  padding: 5px 0;
+  text-align: center;
+  display: inline-block;
+  border-radius: 20px;
+  font-size: 21px;
+  letter-spacing: 2px;
+}
+#main input:focus {
+  outline-width: 0;
+}
+.input-wrapper {
+  margin-bottom: 40px;
+}
+#main h4 {
+  margin-top: 80px;
+}

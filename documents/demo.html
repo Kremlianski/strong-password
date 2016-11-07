@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examples</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/demos.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="strong-password/css/strong-password.min.css">
+    <link rel="stylesheet" href="lib/prism.css">
+    <script type="text/javascript" src="lib/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="strong-password/js/strong-password.min.js"></script>
+    <script type="text/javascript" src="lib/prism.js"></script>
+  </head>
+  <body>
+    <div id="content" class="container-fluid">
+      <div class="top-menu row">
+        <div id="main-menu">
+          <ul class="nav nav-pills">
+            <li role="presentation"><a href="index.html">Home</a></li>
+            <li role="presentation"><a href="api.html">User Guide</a></li>
+            <li role="presentation" class="active"><a href="#">Examples</a></li>
+          </ul>
+        </div>
+      </div>
+    <div id="main">
+      <div id="form-wrapper">
+        <form action="">
+         <h4>Example 1. Default settings</h4>
+          <div class="input-wrapper">
+            <input type="password" id="one">
+          </div>
+          <pre class="language-javascript">
+          <code class="language-javascript">
+          // default options
+          $('#one').strongPassword();
+          </code>
+          </pre>
+          <h4>Example 2. Some password settings</h4>
+          <div class="input-wrapper">
+            <input type="password" id="two">
+          </div>
+          <pre class="language-javascript">
+          <code class="language-javascript">
+          $('#two').strongPassword(
+            {
+              sounds: 3, //number of sounds has been shotten to 3
+              lastConsonant: true, //but the script can add a random consonant 
+              //to the end
+              firstVowel: true, //and a random vovel before the first sound
+              visibleTime: 5000 
+            }
+          );
+          </code>
+          </pre>
+          <h4>Example 3. Some appearance settings and the range option</h4>
+          <div class="input-wrapper">
+            <input type="password" id="three">
+          </div>
+          <pre class="language-javascript">
+          <code class="language-javascript">
+          $('#three').strongPassword(
+            {
+              range: [3,5], // the number of sounds is in a range now
+              cssClass: 'sp-black', //the dark style
+              backdrop: false, // no  backdrop
+              placement: 'right', 
+              animation: 'from-left'
+            }
+          );
+          </code>
+          </pre>
+          <h4>Example 4. Shifted popover and new captions</h4>
+          <div class="input-wrapper">
+            <input type="password" id="fore">
+          </div>
+          <pre class="language-javascript">
+          <code class="language-javascript">
+          $('#fore').strongPassword(
+            {
+              arrow: false, // an arrow is hidden
+              placement: 'bottom-left',
+              offset: { // the popover has been shifted
+                top: -100,
+                left: -40
+              },
+              caption: 'Are you agree?', //new caption
+              buttons: { //new names of buttons
+                regen: 'New',
+                ok: 'Ok',
+                cancel: 'Close'
+              }
+            }
+          );
+          </code>
+          </pre>
+          <h4>Example 5. Perpetual Plugin</h4>
+          <div class="input-wrapper">
+            <input type="password" id="five">
+          </div>
+          <pre class="language-javascript">
+          <code class="language-javascript">
+          $('#five').strongPassword(
+            {
+              //The plugin is used again
+              afterHide: afterHide
+            }
+          );
+          function afterHide(element) {
+            element.strongPassword({
+              afterHide: afterHide
+            });
+          }
+          </code>
+          </pre>
+        </form>
+      </div>
+    </div>  
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function($){
+        $('#one').strongPassword();
+        $('#two').strongPassword(
+          {
+            sounds: 3, //number of sounds has been shotten to 3
+              lastConsonant: true, //but the script can add a random consonant 
+              //to the end
+              firstVowel: true, //and a random vowel before the first sound
+              visibleTime: 5000
+          }
+        );
+        $('#three').strongPassword(
+          {
+            range: [3,5], // the number of sounds is in a range now
+            cssClass: 'sp-black', //the dark style
+            backdrop: false, // no  backdrop
+            placement: 'right', 
+            animation: 'from-left'
+          }
+        );
+        $('#fore').strongPassword(
+          {
+            arrow: false, // an arrow is hidden
+            placement: 'bottom-left',
+            offset: { // the popover has been shifted
+              top: -100,
+              left: -40
+            },
+            caption: 'Are you agree?', //new caption
+            buttons: { //new names of buttons
+              regen: 'New',
+              ok: 'Ok',
+              cancel: 'Close'
+            }
+          }
+        );
+        
+        $('#five').strongPassword(
+            {
+              afterHide: afterHide
+            }
+          );
+        function afterHide(element) {
+          element.strongPassword({
+            afterHide: afterHide
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

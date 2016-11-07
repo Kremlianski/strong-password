@@ -1,0 +1,225 @@
+body {
+  font-size: 14px;
+}
+#main-menu ul, #menu ul {
+  list-style: none;
+  padding: 10px;
+}
+#main-menu li, #menu li {
+  display: block;
+  padding-left: 10px;
+}
+
+.default, .type, .values {
+  color: rgb(100,100,100);
+}
+
+.description {
+  margin-top: 40px;
+}
+.description p {
+  font-size: 16px;
+}
+#main-content h4 {
+  margin-top: 30px;
+}
+.option {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #dedede;
+  padding-bottom: 20px
+}
+
+.code {
+  padding: 40px 20px;
+  border: 1px dotted #dedede;
+  background-color: rgb(246,246,246);
+}
+.example {
+  margin-top: 30px;
+}
+#main-content {
+  padding-bottom: 20px;
+  margin-top: 70px;
+  padding-right: 40px;
+}
+#main-content input {
+  padding: 10px;
+/*
+  -webkit-appearance: none;
+  -moz-appearance: none;
+*/
+
+}
+
+#main-content h3 {
+  padding-top: 70px;
+  font-weight: bold;
+  color: rgb(77,77,77);
+  color: hsl(220, 50%, 30%);
+}
+#main-content h2 {
+  font-size: 48px;
+  margin-top: 50px;
+}
+#main-content h2:not(:first-of-type) {
+
+  margin-top: 120px;
+}
+.nav .nav {
+  display: none;
+  padding: 14px;
+}
+.active > .nav {
+  display: block;
+}
+
+#menu .nav-pills a {
+  color: #464646;
+}
+#menu .nav-pills > li.active > a,
+#menu .nav-pills > li.active > a:hover,
+#menu .nav-pills > li.active > a:focus {
+  background-color: #374c8b;
+  color: white;
+}
+#menu .nav > li > a {
+  padding: 1px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 12px;
+}
+@media (max-width: 999px) {
+  #menu {
+    display: none;
+  }
+}
+
+#menu {
+  margin-top: 70px;
+}
+#menu>ul.nav>li>a {
+  font-size: 12px;
+  font-weight: bold;
+  font-color: rgb(88,88,88);
+  margin-top: 6px;
+}
+
+.step {
+  margin-top: 40px;
+}
+
+.big {
+  font-size: 24px;
+}
+
+.topmenu {
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  padding-top: 0;
+}
+.topmenu a {
+  display: inline-block;
+  color: gray;
+  padding: 20px;
+}
+.top-menu {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  background-color: #4560b0;
+  padding-left: 0;
+  background-image: none;
+  border: 0;
+  border-bottom: 1px solid #f8f8f8;
+}
+@media (max-width: 991px) {
+  .top-menu {
+    position: static;
+    width: auto;
+  }
+}
+
+#main-menu {
+  font-size: 16px;
+  text-align: center;
+  margin-top: 4px;
+  margin-right: 10px;
+}
+@media (max-width: 350px) {
+  #main-menu {
+    font-size: 11px;
+  }
+}
+@media (max-width: 450px) {
+  #main-menu {
+    font-size: 12px;
+  }
+}
+@media (max-width: 991px) {
+  #main-menu {
+    text-align: center;
+  }
+}
+#main-menu > ul {
+  display: inline-block;
+}
+#main-menu > ul > li {
+  background-color: #4560b0;
+}
+#main-menu > ul > li a {
+  color: white;
+  font-weight: bold;
+}
+#main-menu > ul > li.open a,
+#main-menu > ul > li a:focus,
+#main-menu > ul > li a:hover,
+#main-menu > ul > li.open ul {
+  background-color: #374c8b;
+}
+#main-menu > ul > li.open a a,
+#main-menu > ul > li a:focus a,
+#main-menu > ul > li a:hover a,
+#main-menu > ul > li.open ul a {
+  font-weight: normal;
+}
+#main-menu > ul > li.open a a:hover,
+#main-menu > ul > li a:focus a:hover,
+#main-menu > ul > li a:hover a:hover,
+#main-menu > ul > li.open ul a:hover {
+  background-color: #4560b0;
+  border-radius: 4px;
+}
+#main-menu > ul > li.open ul {
+  font-size: 16px;
+  padding: 12px;
+  top: 60px;
+  left: -80px;
+}
+#main-menu > ul > li.open ul:before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 1px;
+  border-bottom: 10px solid #374c8b;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  top: -10px;
+  left: 120px;
+  z-index: 9999999;
+}
+#main-menu > ul a {
+  color: #212121;
+}
+.footer {
+  background-color: #283867;
+  color: white;
+  text-align: center;
+  height: 50px;
+  margin-top: 100px;
+}
+.footer p {
+  padding: 10px;
+  text-align: center;
+}
+
