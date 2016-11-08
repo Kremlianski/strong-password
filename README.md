@@ -7,6 +7,8 @@ Generate a strong memorable password on your webpage
 ![](pics/03_preview3.jpg)
 ![](pics/04_preview4.jpg)
 
-See the demo [here](http://strong-password.exxo.ru/)
+***********
 
-See the documentation [here](http://strong-password.exxo.ru/documents/api.html)
+**See the demo [here](http://strong-password.exxo.ru/)**
+
+**See the documentation [here](http://strong-password.exxo.ru/documents/api.html)**
