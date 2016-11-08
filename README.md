@@ -1,6 +1,10 @@
 # strong-password.js
 
-Generate a strong memorable password on your webpage
+
+
+##Generate a strong memorable password on your webpage
+
+
 
 ![](pics/01_preview1.jpg)
 ![](pics/02_preview2.jpg)
