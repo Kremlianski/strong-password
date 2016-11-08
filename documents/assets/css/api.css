@@ -3,11 +3,14 @@ body {
 }
 #main-menu ul, #menu ul {
   list-style: none;
-  padding: 10px;
+/*  padding: 10px;*/
 }
 #main-menu li, #menu li {
   display: block;
   padding-left: 10px;
+}
+#main-menu li.github a {
+  padding: 5px 0;
 }
 
 .default, .type, .values {

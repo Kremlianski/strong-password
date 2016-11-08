@@ -2,7 +2,7 @@ doctype html
 html
   head
     meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui")
-    title API
+    title strong-password.js API
     link(rel="stylesheet", href="assets/css/api.css")
     link(rel="stylesheet", href="lib/bootstrap/css/bootstrap.min.css")
     link(rel="stylesheet", href="lib/prism.css")
@@ -83,8 +83,11 @@ html
       .top-menu.row
         #main-menu
           ul.nav.nav-pills
+            li(role="presentation"): a(href="http://strong-password.exxo.ru/") Main Demo
             li.active(role="presentation"): a(href="#") User Guide
             li(role="presentation"): a(href="demo.html") Examples
+            li.github(role="presentation"): a(href="https://github.com/Kremlianski/strong-password")
+              img(src="assets/github.png" alt="strong-password.js on github")
       #main.row
         .col-md-3
           #menu(data-spy="affix")
