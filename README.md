@@ -6,7 +6,7 @@
 
 
 
-![](http://strong-password.exxo.ru/password.gif)
+![](http://strong-password.exxo.ru/password1.gif)
 
 
 ***********
