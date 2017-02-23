@@ -15,7 +15,8 @@
 
 **See the documentation [here](http://strong-password.exxo.ru/documents/api.html)**
 
-**See an Atrticle [here](http://scalapro.net/string-calculation-effect-in-javascript/)**
+**See Atrticle [here](http://scalapro.net/strong-password-generator/) and
+[here](http://scalapro.net/string-calculation-effect-in-javascript/)**
 
 
 ***********
